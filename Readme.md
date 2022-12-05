@@ -1,27 +1,3 @@
---------------------------------------
-HKMA
-Course Code: ADBIT-04104-2022-3-FC
-Subject Name: Dynamic Websites 
-Student Name: CHENG WENG TAI, KEVIN
-Class Number: ADBIT-2202-0001
---------------------------------------
-
-Task 2
-1) User login page  ✓
-    --> Success ✓
-    --> Fail, count for 3times ✓
-2) User registration ✓
-
-
-Task 3
-1) FAQ answer (SELECT TYPE, show Q&A) ✓
-2) Login page with newsletter subscribe and subscribe ✓
-
-------------------------------------------------------------
-HOW TO INSTALL
-1) unzip and all install it in the localhost/assignment/
-2) index.php should be localed in localhost/assignment/
-
 ------------------------------------------------------------
 This Website is using the basic concept of Model, View, Controller
 
@@ -36,7 +12,24 @@ When the system start, it will check with the datbase system if the database exi
 
 ------------------------------------------------------------
 
+Requirements 1
+1) User login page  ✓
+    --> Success ✓
+    --> Fail, count for 3times ✓
+2) User registration ✓
 
+
+Requirements 2
+1) FAQ answer (SELECT TYPE, show Q&A) ✓
+2) Login page with newsletter subscribe and subscribe ✓
+
+------------------------------------------------------------
+HOW TO INSTALL
+1) unzip and all install it in the localhost/assignment/
+2) index.php should be localed in localhost/assignment/
+
+------------------------------------------------------------
+IDEA FOR THE STRUCTURE
 
 index.php (setup database if not yet have database)
         --> --> View/AppStart.php   (login) 
