@@ -17,16 +17,17 @@ Requirements 1
     --> Success ✓
     --> Fail, count for 3times ✓
 2) User registration ✓
-
-
-Requirements 2
-1) FAQ answer (SELECT TYPE, show Q&A) ✓
-2) Login page with newsletter subscribe and subscribe ✓
+3) FAQ answer (SELECT TYPE, show Q&A) ✓
+4) Login page with newsletter subscribe and subscribe ✓
 
 ------------------------------------------------------------
 HOW TO INSTALL
-1) unzip and all install it in the localhost/assignment/
-2) index.php should be localed in localhost/assignment/
+1) Unzip and all install it in the localhost/assignment/
+2) Index.php should be localed in localhost/assignment/
+3) Run the website by xampp server and turn on the Web Server and MySQL database
+4) Open the webpage by any browser in the website: http://127.0.0.1/assignment  or http://localhost/assignment
+5) The database will setup automaically in the first setup
+6) System Login user name: aaa   password: bbb
 
 ------------------------------------------------------------
 IDEA FOR THE STRUCTURE
