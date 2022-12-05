@@ -1,3 +1,16 @@
+<?php 
+  if(isset($_GET['action']))
+  {
+      $Category = $_GET['action'];
+      
+      if($Category!= null)
+      {   
+          redirect_Home();
+      }
+  }
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -73,7 +86,7 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/Assignment/index.php" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="http://localhost/assignment/Views/Common/header.php?action=home" class="nav-link px-2 text-secondary">Home</a></li>
           <!--<li><a href="/Assignment/Views/FAQ.php" class="nav-link px-2 text-white">FAQs</a></li>-->
         </ul>
 <?php 
@@ -110,5 +123,24 @@
             //echo "This is SignUp that is selected";
             //header("location:./Views/Register.php"); 
             require_once './Views/Register.php';
+        }
+
+   
+        function clear_Session()
+        {
+          if (!isset($_SESSION))
+          {
+              session_start();
+              if(isset($_SESSION["_userName"]))
+              {
+                  session_destroy();
+              }
+          }
+        }
+
+        function redirect_Home()
+        {
+          clear_Session();
+          header("location:http://localhost/assignment/");
         }
 ?>
