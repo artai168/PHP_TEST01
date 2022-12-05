@@ -1,7 +1,7 @@
 <?php
 
     include_once '../ini/_default.ini.php';
-    
+    /*
     if (isset($_POST["_username"])) {
         $user = trim($_POST['_username']);
     }
@@ -23,9 +23,14 @@
     if (isset($_POST["_post_Code"])) {
         $post_Code = trim($_POST['_post_Code']);
     }
-
-
-    
+    */
+    $user = isset($_POST['_username']) ?$_POST['_username'] : null;
+    $psw = isset($_POST['_password']) ?$_POST['_password'] : null;
+    $email = isset($_POST['_email']) ?$_POST['_email'] : null;
+    $name = isset($_POST['_fullName']) ?$_POST['_fullName'] : null;
+    $birth_Date = isset($_POST['_date_of_Birth']) ?$_POST['_date_of_Birth'] : null;
+    $address = isset($_POST['_address']) ?$_POST['_address'] : null;
+    $post_Code = isset($_POST['_post_Code']) ?$_POST['_post_Code'] : null;    
 
 
     if(!empty($user) && !empty($psw)&& !empty($email)&& !empty($name)&& !empty($birth_Date)&& !empty($address)&& !empty($post_Code))
