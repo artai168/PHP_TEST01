@@ -1,16 +1,3 @@
-<?php 
-  if(isset($_GET['action']))
-  {
-      $Category = $_GET['action'];
-      
-      if($Category!= null)
-      {   
-          redirect_Home();
-      }
-  }
-
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -77,7 +64,12 @@
         -webkit-overflow-scrolling: touch;
       }
     </style>
-
+<?php 
+  if (!isset($_SESSION))
+  {
+      session_start();
+  }
+?>
 <header class="p-3 text-bg-dark">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -86,29 +78,43 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="http://localhost/assignment/Views/Common/header.php?action=home" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="/Assignment/index.php" class="nav-link px-2 text-secondary">Home</a></li>
+          <?php 
+            if(isset($_SESSION["_userName"]))
+            {
+              echo '<li><a href="/Assignment/Views/FAQ.php" class="nav-link px-2 text-white">FAQs</a></li>';
+              echo '<li><a href="/Assignment/Views/Subscription.php" class="nav-link px-2 text-white">Subscription</a></li>';
+            }
+          ?>
           <!--<li><a href="/Assignment/Views/FAQ.php" class="nav-link px-2 text-white">FAQs</a></li>-->
         </ul>
 <?php 
 
-    if (!isset($_SESSION))
-    {
-        session_start();
-    }
+    
 
     if(!isset($_SESSION["_userName"]))
     {
-      
-    ?>
+          ?>
         <div class="text-end">
             <form method="post">
                 <button type="submit" name="Login" value="Login" class="btn btn-outline-light me-2">Login</button>
-                <button type="submit" name="SignUp" value="SignUp" class="btn btn-warning">Sign-up</button>
+                <button type="submit" name="SignUp" value="SignUp" class="btn btn-warning">Sign-up</button>                
             </form>
         </div>
         <?php
     }
+    else
+    {
         ?>
+        <div class="text-end">
+            <form method="post">
+                <button type="submit" name="Logout" value="Logout" class="btn btn-outline-light me-2">Logout</button>
+            </form>
+        </div>
+        <?php
+    }
+      ?>
+        
       </div>
     </div>
   </header>
@@ -124,23 +130,27 @@
             //header("location:./Views/Register.php"); 
             require_once './Views/Register.php';
         }
+        if(isset($_POST['Logout'])) {
+          //echo "This is SignUp that is selected";
+          //header("location:./Views/Register.php"); 
+          logout();
+      }
 
-   
-        function clear_Session()
+        function logout()
         {
+          // Initialize the session.
           if (!isset($_SESSION))
           {
-              session_start();
-              if(isset($_SESSION["_userName"]))
-              {
-                  session_destroy();
-              }
+            session_start();
           }
-        }
+          
+          // Unset all of the session variables.
+          unset($_SESSION['_userName']);
+          // Finally, destroy the session.    
+          session_destroy();
 
-        function redirect_Home()
-        {
-          clear_Session();
-          header("location:http://localhost/assignment/");
+          // Include URL for Login page to login again.
+          header("Location: http://localhost/Assignment/");
+          exit;
         }
 ?>

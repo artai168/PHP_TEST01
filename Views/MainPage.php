@@ -15,9 +15,10 @@
 
         if(isset($_SESSION["_userName"]))
         {
-            include_once PATH_APP_VIEW.'FAQ.php';
+            //include_once PATH_APP_VIEW.'FAQ.php';
+            echo "Welcome ".$_SESSION["_userName"];
             echo "<br><br><br>";
-            include_once PATH_APP_VIEW_FROMS.'subscription.php';
+            //include_once PATH_APP_VIEW_FROMS.'subscription.php';
         }
         else
         {
